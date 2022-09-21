@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
+/*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 06:00:50 by parallels         #+#    #+#             */
-/*   Updated: 2022/09/18 18:38:23 by parallels        ###   ########.fr       */
+/*   Updated: 2022/09/21 02:12:23 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 # include <iostream>
 # include <cmath>
 
-typedef	std::string	String;
+typedef	std::string		String;
+typedef	unsigned int	uint;
 
 class Fixed {
 
@@ -39,21 +40,21 @@ class Fixed {
 		Fixed(void);
 		Fixed(const int i);
 		Fixed(const float f);
-		Fixed(const Fixed &src);
+		Fixed(const Fixed &copy);
 		~Fixed(void);
 		
 		const int	&getRawBits(void) const;
 		
-		Fixed		&operator=(const Fixed &src);
+		Fixed		&operator=(const Fixed &assign);
 		int			toInt(void) const;
 		float		toFloat(void) const;
 		void		setRawBits(int const raw);
 
 	private:
 		int					_Raw;
-		static unsigned const int	_nbBit = 8;
+		static const uint	_nbBit;
 };
 
-std::ostream& operator<<(std::ostream &flux, Fixed const& src);
+std::ostream& operator<<(std::ostream &stream, Fixed const& nb);
 
 #endif

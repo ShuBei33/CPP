@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
+/*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 06:00:50 by parallels         #+#    #+#             */
-/*   Updated: 2022/08/15 06:02:00 by parallels        ###   ########.fr       */
+/*   Updated: 2022/09/21 06:11:41 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,54 @@
 
 # include <string>
 # include <iostream>
+# include <cmath>
 
-typedef	std::string	String;
+typedef	std::string		String;
+typedef	unsigned int	uint;
 
 class Fixed {
 
 	public:
 		Fixed(void);
+		Fixed(const int i);
+		Fixed(const float f);
+		Fixed(const Fixed& copy);
 		~Fixed(void);
+		
+		const int		&getRawBits(void) const;
+
+		bool			operator<(const Fixed&) const;
+		bool			operator>(const Fixed&) const;
+		bool			operator>=(const Fixed&) const;
+		bool			operator<=(const Fixed&) const;
+		bool			operator==(const Fixed&) const;
+		bool			operator!=(const Fixed&) const;
+		Fixed&			operator=(const Fixed& assign);
+		Fixed&			operator+(const Fixed&);
+		Fixed&			operator-(const Fixed&);
+		Fixed&			operator*(const Fixed&);
+		Fixed&			operator/(const Fixed&);
+		Fixed&			operator++();
+		Fixed&			operator--();
+		Fixed			operator++(int);
+		Fixed			operator--(int);
+
+		static Fixed&		min(Fixed&, Fixed&);
+		static Fixed&		max(Fixed&, Fixed&);
+		static const Fixed&	min(const Fixed&, const Fixed&);
+		static const Fixed&	max(const Fixed&, const Fixed&);
+		
+		
+		int				toInt(void) const;
+		float			toFloat(void) const;
+		void			setRawBits(int const raw);
 
 	private:
-
+		int					_Raw;
+		static const uint	_nbBit;
+		
 };
+
+std::ostream& operator<<(std::ostream &stream, Fixed const& nb);
 
 #endif
