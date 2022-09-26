@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 09:44:19 by estoffel          #+#    #+#             */
-/*   Updated: 2022/09/22 02:05:43 by estoffel         ###   ########.fr       */
+/*   Created: 2022/07/17 04:16:27 by parallels         #+#    #+#             */
+/*   Updated: 2022/07/30 23:08:25 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/Zombie.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int	main(void) {
+# include "Contact.hpp"
 
-	Zombie	*Grgr = NULL;
+class	PhoneBook {
 
-	Grgr = zombieHorde(5, "Babybel");
-	if (Grgr)
-		delete [] Grgr;
-	return (0);
-}
+	public:
+		PhoneBook(void);
+		~PhoneBook(void);
+	
+		void	gettingline(String &buf);
+		void	addContact(void);
+		void	searchContact(void);
+		void	display(void);
+
+	private:
+		Contact	Repertory[8];
+		int 	nbContact;
+		// int		index;
+		
+};
+
+#endif

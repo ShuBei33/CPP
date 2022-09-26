@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 10:52:33 by estoffel          #+#    #+#             */
-/*   Updated: 2022/09/22 02:11:05 by estoffel         ###   ########.fr       */
+/*   Created: 2022/07/17 04:16:15 by parallels         #+#    #+#             */
+/*   Updated: 2022/07/31 07:43:48 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # define GREY "\033[0;30m"
 # define RORED "\033[0;31m"
@@ -24,29 +24,37 @@
 # define WHITE "\033[0;97m"
 # define BWHITE "\033[1;97m"
 # define LWHITE "\033[4;97m"
-# define IWHITE "\033[3;97m"
 # define END "\e[0m"
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 
 typedef	std::string	String;
 
-class Harl {
+class	Contact {
 
 	public:
-		Harl(void);
-		~Harl(void);
+		Contact(void);
+		~Contact(void);
 
-		void	complain(const String level) const;
+		const String	&getPhoneNumber(void) const;
 
+		void	setFirstName(String firstname);
+		void	setLastName(String lastname);
+		void	setNickName(String nickname);
+		void	setPhoneNumber(String phonenumber);
+		void	setDarkestSecret(String darkestsecret);
+		void	displayoneContact(void) const;
+		void	displayfullContact(void) const;
+
+		// void affSimpleContact( void ) const;
 	private:
-		void	debug(void) const;
-		void	info(void) const;
-		void	warning(void) const;
-		void	error(void) const;
+		String	_FirstName;
+		String	_LastName;
+		String	_NickName;
+		String	_PhoneNumber;
+		String	_DarkestSecret;
 };
-
-typedef	void	(Harl::*fct_t)() const;
 
 #endif

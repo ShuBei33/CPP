@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
+/*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 04:16:27 by parallels         #+#    #+#             */
-/*   Updated: 2022/08/10 20:17:05 by parallels        ###   ########.fr       */
+/*   Updated: 2022/08/12 04:17:01 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	PhoneBook {
 	private:
 		Contact	Repertory[8];
 		int 	nbContact;
+		
 };
 
 #endif

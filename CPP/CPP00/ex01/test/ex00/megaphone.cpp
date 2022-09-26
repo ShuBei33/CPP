@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 09:44:19 by estoffel          #+#    #+#             */
-/*   Updated: 2022/09/22 02:05:43 by estoffel         ###   ########.fr       */
+/*   Created: 2022/07/15 19:54:27 by parallels         #+#    #+#             */
+/*   Updated: 2022/07/29 02:29:34 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/Zombie.hpp"
+#include <iostream>
+#include <cctype>
 
-int	main(void) {
+int	main(int ac, char **av)
+{
+	int	i = 1;
+	int	j;
 
-	Zombie	*Grgr = NULL;
-
-	Grgr = zombieHorde(5, "Babybel");
-	if (Grgr)
-		delete [] Grgr;
+	if (ac < 2) {
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (1);
+	}
+	while (av[i]) {
+		j = 0;
+		while (av[i][j]) {
+			av[i][j] = toupper(av[i][j]);
+			++j;
+		}
+		std::cout << av[i];
+		++i;
+	}
+	std::cout << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
+/*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 04:42:14 by estoffel          #+#    #+#             */
-/*   Updated: 2022/08/15 04:02:58 by parallels        ###   ########.fr       */
+/*   Updated: 2022/09/22 02:06:52 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int ac, char **av) {
 		i = buff.find(s1);
 		while (i != std::string::npos) {
 			buff.erase(i, s1.length());
-			buff.insert(i, s2);			
+			buff.insert(i, s2);
 			i = buff.find(s1);
 		}
 		dst << buff << std::endl;

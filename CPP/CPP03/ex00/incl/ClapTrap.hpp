@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 10:52:33 by estoffel          #+#    #+#             */
-/*   Updated: 2022/09/22 02:11:05 by estoffel         ###   ########.fr       */
+/*   Created: 2022/09/22 22:01:26 by parallels         #+#    #+#             */
+/*   Updated: 2022/09/24 22:52:13 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # define GREY "\033[0;30m"
 # define RORED "\033[0;31m"
@@ -30,23 +30,30 @@
 # include <string>
 # include <iostream>
 
-typedef	std::string	String;
+typedef	std::string		String;
+typedef	unsigned int	uint;
 
-class Harl {
+class ClapTrap {
 
 	public:
-		Harl(void);
-		~Harl(void);
+		ClapTrap(String name);
+		ClapTrap(const ClapTrap& cpy);
+		~ClapTrap(void);
 
-		void	complain(const String level) const;
+		ClapTrap&	operator=(const ClapTrap& asgn);
+
+		void		setAtk(uint);
+
+		void		attack(const String& target);
+		void		takeDamage(uint amount);
+		void		beRepaired(uint amount);
 
 	private:
-		void	debug(void) const;
-		void	info(void) const;
-		void	warning(void) const;
-		void	error(void) const;
-};
+		String		_Name;
+		int			_HP;
+		uint		_Nrg;
+		uint		_Atk;
 
-typedef	void	(Harl::*fct_t)() const;
+};
 
 #endif

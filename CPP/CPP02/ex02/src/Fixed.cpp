@@ -6,7 +6,7 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 06:02:38 by parallels         #+#    #+#             */
-/*   Updated: 2022/09/21 06:15:32 by estoffel         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:27:33 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,24 @@ Fixed&	Fixed::operator=(const Fixed &assign) {
 	return (*this);
 }
 
-Fixed&	Fixed::operator+(const Fixed &nb) {
+Fixed	Fixed::operator+(const Fixed &nb) {
 
-	this->_Raw += nb._Raw;
-	return (*this);
+	return (Fixed(this->toFloat() + nb.toFloat()));
 }
 
-Fixed&	Fixed::operator-(const Fixed &nb) {
+Fixed	Fixed::operator-(const Fixed &nb) {
 
-	this->_Raw -= nb._Raw;
-	return (*this);
+	return (Fixed(this->toFloat() - nb.toFloat()));
 }
 
-Fixed&	Fixed::operator*(const Fixed &nb) {
+Fixed	Fixed::operator*(const Fixed &nb) {
 
-	this->_Raw *= nb._Raw;
-	return (*this);
+	return (Fixed(this->toFloat() * nb.toFloat()));
 }
 
-Fixed&	Fixed::operator/(const Fixed &nb) {
+Fixed	Fixed::operator/(const Fixed &nb) {
 
-	this->_Raw /= nb._Raw;
-	return (*this);
+	return (Fixed(this->toFloat() / nb.toFloat()));
 }
 
 bool	Fixed::operator<(const Fixed &nb) const {
