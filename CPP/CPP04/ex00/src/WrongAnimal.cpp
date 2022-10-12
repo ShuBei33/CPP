@@ -22,10 +22,14 @@ WrongAnimal::WrongAnimal(String type): _Type(type) {
 	std::cout << BLUE "🐍 Constructor " BWHITE "WrongAnimal" BLUE " called" END << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &cpy) {*this = cpy;}
+WrongAnimal::WrongAnimal(const WrongAnimal &cpy): _Type(cpy._Type) {
+
+	std::cout << TURQ "🐍🐍 Copy Constructor WrongAnimal called" END << std::endl;
+}
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &asgn) {
 
+	std::cout << GREEN "🦕 Copy assignement WrongAnimal called" END << std::endl;
 	this->_Type = asgn._Type;
 	return (*this);
 }

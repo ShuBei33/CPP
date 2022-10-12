@@ -6,7 +6,7 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 06:00:21 by estoffel          #+#    #+#             */
-/*   Updated: 2022/09/26 07:02:18 by estoffel         ###   ########.fr       */
+/*   Updated: 2022/09/27 07:08:37 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ Animal::Animal(String type): _Type(type) {
 	std::cout << BLUE "🐍 Constructor " BWHITE "Animal" BLUE " called" END << std::endl;
 }
 
-Animal::Animal(const Animal &cpy) {*this = cpy;}
+Animal::Animal(const Animal &cpy): _Type(cpy._Type) {
+
+	std::cout << TURQ "🐍🐍 Copy Constructor Animal called" END << std::endl;
+}
 
 Animal&	Animal::operator=(const Animal &asgn) {
 
+		std::cout << GREEN "🦕 Copy assignement Animal called" END << std::endl;
 	this->_Type = asgn._Type;
 	return (*this);
 }

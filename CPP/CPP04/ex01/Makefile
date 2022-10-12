@@ -6,7 +6,7 @@
 #    By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 19:37:02 by parallels         #+#    #+#              #
-#    Updated: 2022/09/26 07:41:31 by estoffel         ###   ########.fr        #
+#    Updated: 2022/09/27 08:58:25 by estoffel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -g -MMD -MP -std=c++98
 
 INCL	=	incl/Animal.hpp		\
+			incl/Brain.hpp		\
 			incl/Cat.hpp		\
 			incl/Dog.hpp		\
 			incl/WrongAnimal.hpp\
 			incl/WrongCat.hpp	\
 
 SRC		=	Animal.cpp			\
+			Brain.cpp			\
 			Cat.cpp				\
 			Dog.cpp				\
 			main.cpp			\
@@ -47,7 +49,7 @@ $(NAME): $(OBJ) $(INCL)
 	$(CC) $(FLAGS) -I incl -o $(NAME) $(OBJ)
 	@printf "\n"
 	@printf "\n"
-	@echo "🌼\033[1;97m L I N E W O R K  C R E A T E D  W I T H  S U C C E S S 🌼\e[0m"
+	@echo "🌼\033[1;97m N O  B U R N  C R E A T E D  W I T H  S U C C E S S 🌼\e[0m"
 	@printf "\n"
 	@echo "			    x"
 	@printf "\n"
